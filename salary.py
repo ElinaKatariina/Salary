@@ -11,19 +11,23 @@ def main():
          laplus = input("Enter hours after 13: ")
    superv = input("Were you supervisor? (y/n): ")
    date = input("Date: (dd.m) ")
+   holy = input("Holy day? (y/n): ")
 
    print(date + " salary is: ")
-   salary = salary_count.counting(hours, evening, wday, laplus, superv, date)
+   salary = salary_count.counting(hours, evening, wday, laplus, superv, date, holy)
    sala = print(round(salary, 1))
 
    sala_file = open("salary.txt", "a")
    sala_file.write(str(date) + " -  " + str(salary) + "€" + "\n")
    sala_file.close()
-   print("Data written to salary.txt!")
    
    count_file = open("counted.txt", "a")
    count_file.write(str(salary) + "\n")
    count_file.close()
-   print("Counted ok!")
+
+   with open('salary.txt', 'r') as f:
+    lines = f.read().splitlines()
+    last_3 = lines[-3:]
+    print(last_3)
 
 main()

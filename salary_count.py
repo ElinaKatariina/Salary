@@ -1,6 +1,6 @@
 import  os
 
-def counting(hours, evening, wday, laplus, superv, date):
+def counting(hours, evening, wday, laplus, superv, date, holy):
 
     
     # Tarvittavat string muutetaan int
@@ -32,8 +32,14 @@ def counting(hours, evening, wday, laplus, superv, date):
     else:
         superv_sal = 0
 
+    # pyhälisä
+    if holy == "y" and wday != "su":
+        holy = hours_flo * 12.09
+    else:
+        holy = 0
+
     # palkka yhteensä
-    sal_is = round(float(hours_sal) + float(evening_sal) + float(laplus_sal) + float(suplus_sal) + float(superv_sal), 1)
+    sal_is = round(float(hours_sal) + float(evening_sal) + float(laplus_sal) + float(suplus_sal) + float(superv_sal) + float(holy), 1)
 
     
 

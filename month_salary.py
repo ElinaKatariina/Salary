@@ -10,7 +10,7 @@ def monthly_sal():
     for y in file_in.read().split('\n'):
         x.append(float(y))
         sal = sum(x)
-    month = input("Enter month: Jan-Dec ")
+    month = input("Enter month (Jan-Dec): ")
 
     month_sum = open("months_sal.txt", "a")
     month_sum.write(str(sal) + "  " + str(month) + "\n")
